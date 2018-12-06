@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import CounterExample from './examples/CounterExample';
+import WindowSizeExample from './examples/WindowSizeExample';
+import SpringExample from './examples/SpringExample';
+
 class App extends Component {
   render() {
     return (
@@ -20,6 +24,9 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <CounterExample />
+        <WindowSizeExample />
+        <SpringExample />
       </div>
     );
   }
