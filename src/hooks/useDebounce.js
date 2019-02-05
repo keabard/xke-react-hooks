@@ -31,7 +31,7 @@ function App() {
         setIsSearching(true);
         searchCharacters(debouncedSearchTerm).then(results => {
           setIsSearching(false);
-          setResults(results.data.results);
+          setResults(results);
         });
       } else {
         setResults([]);
@@ -71,7 +71,13 @@ function searchCharacters(search) {
     {
       method: 'GET'
     }
-  ).then(r => r.json());
+  )  
+    .then(r => r.json())
+    .then(r => r.data.results)
+    .catch(error => {
+      console.error(error);
+      return [];
+    });
 }
        
 // Hook

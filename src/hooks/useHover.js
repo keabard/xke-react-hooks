@@ -1,6 +1,9 @@
-/*Detect whether the mouse is hovering an element. The hook returns a ref and a boolean value
- indicating whether the element with that ref is currently being hovered. So just add the returned ref to
- any element whose hover state you want to monitor.*/
+/*Detect whether the mouse is hovering an element. The hook returns a ref
+and a boolean value
+ indicating whether the element with that ref is currently being
+hovered. So just add the returned ref to
+ any element whose hover state you want
+to monitor.*/
 
 import React from 'react';
 
@@ -18,7 +21,7 @@ function App() {
 }
 
 // Hook
-function useHover() {
+export default function useHover() {
   const [value, setValue] = useState(false);
 
   const ref = useRef(null);

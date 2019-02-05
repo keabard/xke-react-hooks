@@ -1,6 +1,9 @@
-/*This hook allows you to easily detect when an element is visible on the screen as well as specify
- how much of the element should be visible before being considered on screen. Perfect for lazy
- loading images or triggering animations when the user has scrolled down to a particular section.*/
+/*This hook allows you to easily detect when an element is visible on the
+screen as well as specify
+ how much of the element should be visible before being
+considered on screen. Perfect for lazy
+ loading images or triggering animations when
+the user has scrolled down to a particular section.*/
 
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';

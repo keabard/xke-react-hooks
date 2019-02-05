@@ -1,12 +1,12 @@
 /*This hook is part of the react-spring animation library which allows for highly performant
  physics-based animations. I try to avoid including dependencies in these recipes, but once in awhile I'm
  going to make an exception for hooks that expose the functionality of really useful libraries. One
- nice thing about react-spring is that it allows you to  completely skip the React render cycle when
+ nice thing about react-spring is that it allows you to completely skip the React render cycle when
  applying animations, often giving a pretty substantial performance boost. In our recipe below we
  render a row of cards and apply a springy animation effect related to the mouse position over any
  given card. To make this work we call the useSpring hook with an array of values we want to animate,
- render an animated.div component (exported by react-spring), get the mouse position over a card
- with the onMouseMove event, then call setAnimatedProps (function returned by the hook) to update that
+ render an animated.div component (exported by react-spring), get the mouse position over a card with
+ the onMouseMove event, then call setAnimatedProps (function returned by the hook) to update that
  set of values based on the mouse position. Read through the comments in the recipe below for more
  details or jump right over to the CodeSandbox demo. I liked this effect so much I ended up using it
  on my startup's landing page 😎*/
@@ -18,9 +18,6 @@ import { useSpring, animated } from 'react-spring';
 // Displays a row of cards
 // Usage of hook is within <Card> component below
 function App() {
-  const cards=[
-    {title: 'Spider-Man', description: 'Spidey', image: 'http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b/standard_amazing.jpg'}
-  ]
   return (
     <div className="container">
       <div className="row">
@@ -29,7 +26,7 @@ function App() {
             <Card>
               <div className="card-title">{card.title}</div>
               <div className="card-body">{card.description}</div>
-              <img className="card-image" src={card.image} alt="card" />
+              <img className="card-image" src={card.image} />
             </Card>
           </div>
         ))}
