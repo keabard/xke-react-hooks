@@ -6,7 +6,7 @@ function Counter() {
   
   const incrementCount = () => setCount(currentCount => currentCount + 1);
 
-  useLayoutEffect(
+  useEffect(
     () => {
       window.localStorage.setItem('count', count);
     },
