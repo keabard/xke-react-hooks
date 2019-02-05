@@ -1,15 +1,25 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useLayoutEffect} from 'react';
 
-export default () => {
+function Counter() {
   // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(Number(window.localStorage.getItem('count')) || 0);
+  
+  const incrementCount = () => setCount(currentCount => currentCount + 1);
+
+  useLayoutEffect(
+    () => {
+      window.localStorage.setItem('count', count);
+    },
+    [count]
+  )
 
   return (
    <div>
-     <p>You clicked {count} times</p>
-     <button onClick={() => setCount(count + 1)}>
-       Click me
+     <button onClick={incrementCount}>
+       {count}
      </button>
    </div>
  );
 }
+
+export default Counter;
