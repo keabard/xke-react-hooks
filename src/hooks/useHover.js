@@ -21,7 +21,7 @@ function App() {
 }
 
 // Hook
-export default function useHover() {
+function useHover() {
   const [value, setValue] = useState(false);
 
   const ref = useRef(null);

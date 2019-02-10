@@ -29,8 +29,8 @@ function App() {
 function useLocalStorage(key, initialValue) {
   // The initialValue arg is only used if there is nothing in localStorage ...
   // ... otherwise we use the value in localStorage so state persist through a page refresh.
-  // We pass a function to useState so localStorage lookup only happens once.
-  // We wrap in try/catch in case localStorage is unavailable
+  // Pass a function to useState so localStorage lookup only happens once.
+  // Wrap in try/catch in case localStorage is unavailable.
   const [item, setInnerValue] = useState(() => {
     try {
       return window.localStorage.getItem(key)
@@ -45,8 +45,12 @@ function useLocalStorage(key, initialValue) {
   // Return a wrapped version of useState's setter function that ...
   // ... persists the new value to localStorage.
   const setValue = value => {
-    setInnerValue(value);
-    window.localStorage.setItem(key, JSON.stringify(item));
+    try {
+      setInnerValue(value);
+      window.localStorage.setItem(key, JSON.stringify(value));
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   // Alternatively we could update localStorage inside useEffect ...
@@ -54,7 +58,7 @@ function useLocalStorage(key, initialValue) {
   // ... to happen when the returned setValue function is called.
   /*
   useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(item));
+    window.localStorage.setItem(key, JSON.stringify(value));
   });
   */
 

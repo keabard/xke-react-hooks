@@ -19,7 +19,7 @@ function App() {
 }
 
 // Hook
-export default function useWindowSize() {
+function useWindowSize() {
   const isClient = typeof window === 'object';
 
   function getSize() {

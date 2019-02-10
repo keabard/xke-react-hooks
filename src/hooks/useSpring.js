@@ -35,7 +35,7 @@ function App() {
   );
 }
 
-export default function Card({ children }) {
+function Card({ children }) {
   // We add this ref to card element and use in onMouseMove event ...
   // ... to get element's offset and dimensions.
   const ref = useRef();
